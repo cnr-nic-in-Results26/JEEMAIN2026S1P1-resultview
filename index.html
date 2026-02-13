@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>examinationservices.nic.in</title>
+  <link rel="icon" type="image/jpeg" href="nta-icon.jfif">
+  <link rel="Shortcut Icon" type="image/jpeg" href="nta-icon.jfif">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    header img {
+      height: 50px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 20px;
+      margin: 10px 0;
+      color: #000;
+      font-weight: bold;
+    }
+    h2 {
+      text-align: center;
+      font-size: 16px;
+      margin: 5px 0 20px;
+      color: #000;
+    }
+     h4 {
+      text-align: center;
+      font-size: 16px;
+      margin: 5px 0 20px;
+      color: #000;
+    }
+    .login-box {
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    .login-box h3 {
+      margin: 0 0 15px;
+      background: #002b5c;
+      color: #fff;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  padding-right: 35px !important;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+  color: #666;
+}
+    .captcha-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .captcha-text {
+      background: #002b5c;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 16px;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+    .refresh-btn {
+      cursor: pointer;
+      font-size: 18px;
+      color: #007b33;
+      font-weight: bold;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background: #007b33;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn:hover {
+      background: #005d27;
+    }
+    .forgot {
+      text-align: right;
+      margin-top: 5px;
+      font-size: 13px;
+    }
+    .forgot a {
+      color: #002b5c;
+      text-decoration: none;
+    }
+    footer {
+      background: #002b5c;
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+    /* Result screen */
+    .result-screen {
+      display: none;
+      width: 100%;
+      min-height: 100vh;
+      background: #fff; /* Changed to white */
+      position: relative;
+      text-align: center;
+      padding-top: 40px;
+    }
+    .result-image {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 0 auto 34px auto;
+      border-radius: 6px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.13);
+      background: #fff;
+      object-fit: contain;
+    }
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .action-btn {
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 8px 22px;
+      cursor: pointer;
+      transition: background 0.18s;
+      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+      outline: none;
+      margin-bottom: 8px;
+      margin-top: 0;
+      display: inline-block;
+    }
+    .print-btn {
+      background: #137FE4;
+      color: #fff;
+    }
+    .print-btn:hover, .print-btn:focus {
+      background: #0959a2;
+      color: #fff;
+    }
+    .another-btn {
+      background: #DD3145;
+      color: #fff;
+    }
+    .another-btn:hover, .another-btn:focus {
+      background: #991c2a;
+      color: #fff;
+    }
+    .download-section {
+      text-align: center;
+      margin-top: 14px;
+    }
+    .download-link {
+      background: #218838;
+      color: #fff;
+      border-radius: 4px;
+      border: none;
+      padding: 8px 18px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+      transition: background 0.15s;
+    }
+    .download-link:hover, .download-link:focus {
+      background: #145922;
+      color: #fff;
+    }
+    /* Download icon SVG */
+    .icon-download {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: url('data:image/svg+xml;utf8,<svg fill="white" height="18" width="18" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12.5a1 1 0 0 1-.7-.29l-4-4a1 1 0 0 1 1.4-1.42l2.3 2.29V3a1 1 0 1 1 2 0v6.08l2.3-2.29A1 1 0 1 1 14.7 8.21l-4 4A1 1 0 0 1 10 12.5zm-7 2A1 1 0 0 1 3 13.5h14a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1z"/></svg>') no-repeat center center;
+      background-size: 18px 18px;
+    }
+    @media (max-width: 500px) {
+      .result-image {max-width: 98vw;}
+      .action-btn, .download-link {font-size: 14px; padding: 7px 13px;}
+      .action-buttons {gap: 8px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <img src="ministry-of-education.png" alt="Govt of India Logo"> 
+    <img src="nta.png" alt="NTA Logo">
+  </header>
+
+  <!-- Title -->
+  <h1>JOINT ENTRANCE EXAMINATION (Main) – 2026</h1>
+  <h2>SESSION 1 (JANUARY 2026)</h2>
+  <h4>NTA SCORE CARD: Paper 1 (B.E./B Tech.)</h4>
+
+  <!-- Login Box -->
+  <div class="login-box" id="loginBox">
+    <h3>🔒View Result</h3>
+    <div class="form-group">
+      <label for="application">Application Number :</label>
+      <input type="text" id="application" placeholder="Enter Application Number">
+    </div>
+<div class="form-group">
+  <label for="password">Password :</label>
+  <div class="password-wrapper">
+    <input type="password" id="password" placeholder="Enter Password">
+    <span id="togglePassword" class="eye-icon">
+      <i class='fa fa-eye'></i>
+    </span>
+  </div>
+</div>
+    <div class="form-group">
+      <label>Enter CAPTCHA (case sensitive) :</label>
+      <div class="captcha-box">
+        <span class="captcha-text" id="captchaText"></span>
+        <span class="refresh-btn" onclick="generateCaptcha()">&#8635;</span>
+        <input type="text" id="captcha" placeholder="Enter CAPTCHA">
+      </div>
+    </div>
+    <button class="btn" onclick="validateLogin()">LOGIN</button>
+    <div class="forgot"><a href="#">Forgot Password ?</a></div>
+  </div>
+
+  <!-- Result Screen -->
+  <div class="result-screen" id="resultBox">
+    <img src="jee-main-2026-s1p1.jpg" alt="Result" class="jee-main-2026-s1p1-image">
+    <div class="download-section">
+      <a href="jee-main-2026-s1p1.pdf" class="download-link" download="jee-main-2026-s1p1-pdf">
+        <span class="icon-download"></span>
+        Download PDF
+      </a>
+    </div>
+    <div class="action-buttons">
+      <button class="action-btn print-btn" onclick="printImage()">Print</button>
+      <button class="action-btn another-btn" onclick="resetToLogin()">Check Another Result</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    This site is designed and hosted by NIC PEP Division. The contents are provided by NTA. 
+    For any further information, please contact NTA.
+  </footer>
+
+  <script>
+    const defaultAppNo = "260310788530";
+    const defaultPassword = "Sitaram7873@";
+    let currentCaptcha = "";  
+  
+    function generateCaptcha() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let captcha = "";
+      for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      currentCaptcha = captcha;
+      document.getElementById("captchaText").textContent = captcha;
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const togglePassword = document.querySelector("#togglePassword");
+      const password = document.querySelector("#password");
+      const applicationField = document.getElementById("application");
+
+      // Toggle password visibility
+      togglePassword.addEventListener("click", function () {
+        const type = password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+        this.innerHTML = type === "password" ? "<i class='fa fa-eye'></i>" : "<i class='fa fa-eye-slash'></i>";
+      });
+
+      // Clean pasted content for password
+      password.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+        this.value = pastedText.trim().replace(/[\r\n]/g, '');
+      });
+      
+      // Clean pasted content for application number
+      applicationField.addEventListener('paste', function(e) {
+        e.preventDefault();
+        const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+        this.value = pastedText.trim().replace(/[\r\n]/g, '');
+      });
+    });
+    function validateLogin() {
+      const appNo = document.getElementById("application").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      const captcha = document.getElementById("captcha").value.trim();
+
+      if (appNo === defaultAppNo && pass === defaultPassword && captcha === currentCaptcha) {
+        document.getElementById("loginBox").style.display = "none";
+        document.querySelector("header").style.display = "none";
+        document.querySelector("h1").style.display = "none";
+        document.querySelector("h2").style.display = "none";
+        document.querySelector("h4").style.display = "none";
+        document.querySelector("footer").style.display = "none";
+        document.getElementById("resultBox").style.display = "block";
+      } else {
+        alert("Invalid credentials or captcha. Please try again.");
+        generateCaptcha();
+      }
+    }
+function printImage() {
+  const printWindow = window.open('', '_blank');
+  printWindow.document.write('<html><head><title>Print Result</title>');
+  printWindow.document.write('<style>body{margin:0;display:flex;justify-content:center;align-items:center;} img{max-width:100%;height:auto;}</style>');
+  printWindow.document.write('</head><body>');
+  printWindow.document.write('<img src="jee-main-2026-s1p1.jpg" onload="window.print();window.close();">');
+  printWindow.document.write('</body></html>');
+  printWindow.document.close();
+}
+    function resetToLogin() {
+      // Show login, hide result
+      document.getElementById("loginBox").style.display = "block";
+      document.querySelector("header").style.display = "";
+      document.querySelector("h1").style.display = "";
+      document.querySelector("h2").style.display = "";
+      document.querySelector("h4").style.display = "";
+      document.querySelector("footer").style.display = "";
+      document.getElementById("resultBox").style.display = "none";
+      // clear fields
+      document.getElementById("application").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("captcha").value = "";
+      generateCaptcha();
+    }
+  
+
+    window.onload = generateCaptcha;
+  </script>
+</body>
+</html>
